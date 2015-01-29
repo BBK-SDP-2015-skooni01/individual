@@ -37,4 +37,9 @@ public class InstructionTests {
     public void testLin(){
         assertEquals(m.getRegisters().getRegister(1), 10);
     }
+
+    @Test
+    public void testSub(){
+        assertEquals(m.getRegisters().getRegister(4), 5);
+    }
 }
