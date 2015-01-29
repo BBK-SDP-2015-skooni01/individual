@@ -27,8 +27,8 @@ public class BnzInstruction extends Instruction {
 
 			//get the label number
 			int labelNo = Integer.parseInt(instruction.substring(1));
-			//pass the label number into getProg
-			Instruction ins = m.getProg().get(labelNo);
+			//pass the label number into getProg - ZERO INDEXED
+			Instruction ins = m.getProg().get(labelNo-1);
 			ins.execute(m);
 		}	}
 
