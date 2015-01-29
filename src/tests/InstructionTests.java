@@ -23,12 +23,20 @@ public class InstructionTests {
     @Before
     public void buildUp(){
         m = new Machine();
-        System.setOut(new PrintStream(out));
+        //System.setOut(new PrintStream(out));
         String testFile = "tests/testfile";
         Translator t = new Translator(testFile);
         //directly calling methods appearing in Machine.main to avoid call to static method
         t.readAndTranslate(m.getLabels(), m.getProg());
+        System.out.println("Here is the program; it has " + m.getProg().size() + " instructions.");
+        System.out.println(m);
+
+        System.out.println("Beginning program execution.");
         m.execute();
+        System.out.println("Ending program execution.");
+
+        System.out.println("Values of registers at program termination:");
+        System.out.println(m.getRegisters() + ".");
 
     }
 
@@ -58,12 +66,14 @@ public class InstructionTests {
     }
 
     @Test
+    public void testBnz() {assertEquals(m.getRegisters().getRegister(2),12);
+    /*@Test
     public void testOut(){
         assertEquals("10\n", out.toString());
-    }
+    }*/
 
-    @After
-    public void closeDown(){
-        System.setOut(null);
-    }
+    //    @After
+//    public void closeDown(){
+//        System.setOut(null);
+//    }
 }
