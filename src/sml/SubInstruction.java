@@ -1,7 +1,7 @@
 package sml;
 
 /**
- * This class takes the contents of two registers and adds them together.
+ * This class takes the contents of two registers and subtracts the first from the second.
  *	@see sml.Instruction
  */
 
@@ -16,7 +16,7 @@ public class SubInstruction extends Instruction {
 	}
 
 	public SubInstruction(String label, int result, int op1, int op2) {
-		this(label, "add");
+		this(label, "sub");
 		this.result = result;
 		this.op1 = op1;
 		this.op2 = op2;
