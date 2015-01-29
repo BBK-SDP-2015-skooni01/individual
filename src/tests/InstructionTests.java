@@ -68,7 +68,9 @@ public class InstructionTests {
     }
 
     @Test
-    public void testBnz() {assertEquals(m.getRegisters().getRegister(7),3);}    /*@Test
+    public void testBnz() {assertEquals(m.getRegisters().getRegister(7),3);}
+
+    /*@Test
     public void testOut(){
         assertEquals("10\n", out.toString());
     }*/

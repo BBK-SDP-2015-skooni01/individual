@@ -124,6 +124,11 @@ public class Translator {
         // Get class constructor - the one with parameters
         try {
             Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[10];
+            //make an array the length of the number of params for the class constructor
+            Object[] argsArray = new Object[constr.getParameterCount()];
+            //populate array with correct number of variables
+
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
