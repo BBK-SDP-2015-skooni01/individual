@@ -15,13 +15,13 @@ import sml.Translator;
  */
 public class InstructionTests {
     private Machine m;
-    private Translator t;
-    private final String testFile = "tests/testfile";
 
     @Before
     public void buildUp(){
         m = new Machine();
-        t = new Translator(testFile);
+        String testFile = "tests/testfile";
+        Translator t = new Translator(testFile);
+        //directly calling methods appearing in Machine.main to avoid call to static method
         //directly calling methods appearing in Machine.main to avoid call to static method
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
