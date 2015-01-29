@@ -22,7 +22,6 @@ public class InstructionTests {
         String testFile = "tests/testfile";
         Translator t = new Translator(testFile);
         //directly calling methods appearing in Machine.main to avoid call to static method
-        //directly calling methods appearing in Machine.main to avoid call to static method
         t.readAndTranslate(m.getLabels(), m.getProg());
         m.execute();
 
