@@ -119,6 +119,15 @@ public class Translator {
                 return new BnzInstruction(label, s1, l2);
         }*/
 
+        // Transform ins to capital first letter
+        String className = ins.substring(0,1).toUpperCase() + ins.substring(1);
+        // Get class constructor - the one with parameters
+        try {
+            Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[10];
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         // You will have to write code here for the other instructions.
               return null;
     }
