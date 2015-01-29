@@ -46,4 +46,9 @@ public class InstructionTests {
     public void testMul(){
         assertEquals(m.getRegisters().getRegister(5),50);
     }
+
+    @Test
+    public void testDiv(){
+        assertEquals(m.getRegisters().getRegister(6), 2);
+    }
 }
