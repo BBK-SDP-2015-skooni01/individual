@@ -32,4 +32,9 @@ public class InstructionTests {
     public void testAdd(){
         assertEquals(m.getRegisters().getRegister(3), 15);
     }
+
+    @Test
+    public void testLin(){
+        assertEquals(m.getRegisters().getRegister(1), 10);
+    }
 }
