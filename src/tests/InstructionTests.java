@@ -20,4 +20,10 @@ public class InstructionTests {
     public void buildUp(){
         m = new Machine();
     }
+
+    @Test
+    public void testAdd(){
+        m.main(testFile);
+        assertEquals(m.getRegisters().getRegister(3), 15);
+    }
 }
