@@ -112,6 +112,10 @@ public class Translator {
             case "out":
                 r = scanInt();
                 return new OutInstruction(label, r);
+            case "bnz":
+                s1 = scanInt();
+                String l2 = scan();
+                return new BnzInstruction(label, s1, l2);
         }
 
         // You will have to write code here for the other instructions.

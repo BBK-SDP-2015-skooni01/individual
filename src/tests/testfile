@@ -6,4 +6,4 @@ L5 mul 5 1 2
 L6 div 6 1 2
 L7 out 1
 L8 lin 2 2
-L9 bnz L3
+L9 bnz 3 L3
