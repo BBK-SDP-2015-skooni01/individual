@@ -24,6 +24,11 @@ public class BnzInstruction extends Instruction {
 	public void execute(Machine m) {
 		if (m.getRegisters().getRegister(register) != 0){
 			//run last instruction
+
+			//get the label number
+			int labelNo = Integer.parseInt(label.substring(1));
+			//pass the label number into getProg
+			Instruction ins = m.getProg().get(labelNo);
 		}
 	}
 
