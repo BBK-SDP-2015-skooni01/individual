@@ -40,8 +40,10 @@ public class InstructionTests {
 
     }
 
-    @Test
+       @Test
     public void testAdd(){
+        //this should be 12 at the end of execution, as it is executed twice:
+        // once at
         assertEquals(m.getRegisters().getRegister(3), 15);
     }
 
@@ -66,7 +68,7 @@ public class InstructionTests {
     }
 
     @Test
-    public void testBnz() {assertEquals(m.getRegisters().getRegister(3),12);}    /*@Test
+    public void testBnz() {assertEquals(m.getRegisters().getRegister(7),3);}    /*@Test
     public void testOut(){
         assertEquals("10\n", out.toString());
     }*/
