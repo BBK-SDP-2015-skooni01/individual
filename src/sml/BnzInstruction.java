@@ -26,15 +26,14 @@ public class BnzInstruction extends Instruction {
 			//run last instruction
 
 			//get the label number
-			int labelNo = Integer.parseInt(label.substring(1));
+			int labelNo = Integer.parseInt(instruction.substring(1));
 			//pass the label number into getProg
 			Instruction ins = m.getProg().get(labelNo);
 			ins.execute(m);
-		}
-	}
+		}	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " register " + register + " value printed";
+		return super.toString() + " register " + register + " not zero so instruction " + instruction + " executed";
 	}
 }
