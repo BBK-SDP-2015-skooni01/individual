@@ -7,7 +7,7 @@ import sml.Translator;
 
 /**
  * Tests for the Instruction classes.
- * Input file stored in array and passed into Machine.main()
+ * Input file is testfile in the current package
  * Register 3: add
  * Register 4: sub
  * Register 5: mul
