@@ -39,6 +39,6 @@ public class InstructionTests {
 
     @Test
     public void testSub(){
-        assertEquals(m.getRegisters().getRegister(4), 5);
+        assertEquals(m.getRegisters().getRegister(4), -5);
     }
 }
