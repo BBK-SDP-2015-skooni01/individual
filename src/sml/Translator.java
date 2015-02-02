@@ -89,6 +89,8 @@ public class Translator {
 
         //create array of objects and populate with scanned values
         // operands[2] is s1, will be String if ins is "bnz", otherwise will be int
+        // if there is no value present when the line is scanned, it will default to max int value
+        // but that value will not be passed into the constructor
         Object[] operands = {label, scanInt(), ins.equals("bnz")? scan() : scanInt(), scanInt()};
 
         // Transform ins to capital first letter for Class.forName
@@ -99,7 +101,7 @@ public class Translator {
             Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[1];
             //make an array the length of the number of params for the class constructor
             Object[] argsArray = new Object[constr.getParameterCount()];
-            //populate array with correct number of variables
+            //populate array with correct number of variables from operands
             System.arraycopy(operands, 0, argsArray, 0, argsArray.length);
             //instantiate class with argsArray and return it cast to Instruction
             return (Instruction) constr.newInstance(argsArray);
