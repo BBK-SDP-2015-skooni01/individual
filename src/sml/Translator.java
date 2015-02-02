@@ -87,16 +87,10 @@ public class Translator {
 
         // You will have to write code here for the other instructions.
 
-        //create array of objects with max number of params
-        Object[] inputVals = new Object[4];
-        inputVals[0] = label;   // label should be first item in array
-        inputVals[1] = scanInt();   //r
-        if (ins.equals("bnz")) {        //s1 - may be label if ins is bnz
-            inputVals[2] = scan();
-        } else {
-            inputVals[2] = scanInt();
-        }
-        inputVals[3] = scanInt();   //s2
+        //create array of objects and populate with scanned values
+        // inputVals[2] is s1, will be String if ins is "bnz", otherwise will be int
+        Object[] inputVals = {label, scanInt(), ins.equals("bnz")? scan() : scanInt(), scanInt()};
+
         // Transform ins to capital first letter
         String className = ins.substring(0,1).toUpperCase() + ins.substring(1);
         try {
