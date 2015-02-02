@@ -139,7 +139,7 @@ public class Translator {
             //make an array the length of the number of params for the class constructor
             Object[] argsArray = new Object[constr.getParameterCount()];
             //populate array with correct number of variables
-            for (int i=0; i>argsArray.length; i++){
+            for (int i=0; i<argsArray.length; i++){
                 argsArray[i] = inputVals[i];
             }
             //instantiate class with argsArray
