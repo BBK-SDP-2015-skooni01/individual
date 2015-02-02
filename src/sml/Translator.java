@@ -119,10 +119,20 @@ public class Translator {
                 return new BnzInstruction(label, s1, l2);
         }*/
 
+        //create array of objects with max number of params
+        Object[] inputVals = new Object[4];
+        inputVals[0] = label;   // label should be first item in array
+        inputVals[1] = scanInt();   //r
+        if (ins == "bnz") {        //s1 - may be label if ins is bnz
+            inputVals[2] = scan();
+        } else {
+            inputVals[2] = scanInt();
+        }
+        inputVals[3] = scanInt();   //s2
         // Transform ins to capital first letter
         String className = ins.substring(0,1).toUpperCase() + ins.substring(1);
-        // Get class constructor - the one with parameters
         try {
+            // Get class constructor - the one with parameters
             Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[1];
             //make an array the length of the number of params for the class constructor
             Object[] argsArray = new Object[constr.getParameterCount()];
