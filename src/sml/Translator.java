@@ -125,7 +125,7 @@ public class Translator {
         Object[] inputVals = new Object[4];
         inputVals[0] = label;   // label should be first item in array
         inputVals[1] = scanInt();   //r
-        if (ins == "bnz") {        //s1 - may be label if ins is bnz
+        if (ins.equals("bnz")) {        //s1 - may be label if ins is bnz
             inputVals[2] = scan();
         } else {
             inputVals[2] = scanInt();
