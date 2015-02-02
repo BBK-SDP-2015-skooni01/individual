@@ -88,8 +88,8 @@ public class Translator {
         // You will have to write code here for the other instructions.
 
         //create array of objects and populate with scanned values
-        // inputVals[2] is s1, will be String if ins is "bnz", otherwise will be int
-        Object[] inputVals = {label, scanInt(), ins.equals("bnz")? scan() : scanInt(), scanInt()};
+        // operands[2] is s1, will be String if ins is "bnz", otherwise will be int
+        Object[] operands = {label, scanInt(), ins.equals("bnz")? scan() : scanInt(), scanInt()};
 
         // Transform ins to capital first letter for Class.forName
         String className = ins.substring(0,1).toUpperCase() + ins.substring(1);
@@ -100,14 +100,14 @@ public class Translator {
             //make an array the length of the number of params for the class constructor
             Object[] argsArray = new Object[constr.getParameterCount()];
             //populate array with correct number of variables
-            System.arraycopy(inputVals, 0, argsArray, 0, argsArray.length);
-            //instantiate class with argsArray
+            System.arraycopy(operands, 0, argsArray, 0, argsArray.length);
+            //instantiate class with argsArray and return it cast to Instruction
             return (Instruction) constr.newInstance(argsArray);
         } catch (ClassNotFoundException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
-              return null;
+        return null;
     }
 
     /*
