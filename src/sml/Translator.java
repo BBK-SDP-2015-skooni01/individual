@@ -123,7 +123,7 @@ public class Translator {
         String className = ins.substring(0,1).toUpperCase() + ins.substring(1);
         // Get class constructor - the one with parameters
         try {
-            Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[10];
+            Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[1];
             //make an array the length of the number of params for the class constructor
             Object[] argsArray = new Object[constr.getParameterCount()];
             //populate array with correct number of variables
