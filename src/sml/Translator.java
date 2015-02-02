@@ -91,17 +91,16 @@ public class Translator {
         // inputVals[2] is s1, will be String if ins is "bnz", otherwise will be int
         Object[] inputVals = {label, scanInt(), ins.equals("bnz")? scan() : scanInt(), scanInt()};
 
-        // Transform ins to capital first letter
+        // Transform ins to capital first letter for Class.forName
         String className = ins.substring(0,1).toUpperCase() + ins.substring(1);
+
         try {
-            // Get class constructor - the one with parameters
+            // Get class constructor - the one with parameters ([0] is default no args constructor)
             Constructor constr = Class.forName("sml."+className+"Instruction").getConstructors()[1];
             //make an array the length of the number of params for the class constructor
             Object[] argsArray = new Object[constr.getParameterCount()];
             //populate array with correct number of variables
-            for (int i=0; i<argsArray.length; i++){
-                argsArray[i] = inputVals[i];
-            }
+            System.arraycopy(inputVals, 0, argsArray, 0, argsArray.length);
             //instantiate class with argsArray
             return (Instruction) constr.newInstance(argsArray);
         } catch (ClassNotFoundException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
