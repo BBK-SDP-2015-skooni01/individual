@@ -119,6 +119,8 @@ public class Translator {
                 return new BnzInstruction(label, s1, l2);
         }*/
 
+        // You will have to write code here for the other instructions.
+
         //create array of objects with max number of params
         Object[] inputVals = new Object[4];
         inputVals[0] = label;   // label should be first item in array
@@ -140,12 +142,12 @@ public class Translator {
             for (int i=0; i>argsArray.length; i++){
                 argsArray[i] = inputVals[i];
             }
-
-        } catch (ClassNotFoundException e) {
+            //instantiate class with argsArray
+            return (Instruction) constr.newInstance(argsArray);
+        } catch (ClassNotFoundException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
-        // You will have to write code here for the other instructions.
               return null;
     }
 
