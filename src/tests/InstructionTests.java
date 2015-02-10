@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import sml.Machine;
 import sml.Translator;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 /**
  * Tests for the Instruction classes.
@@ -18,12 +16,10 @@ import java.io.PrintStream;
  */
 public class InstructionTests {
     private Machine m;
-    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before
     public void buildUp(){
         m = new Machine();
-        //System.setOut(new PrintStream(out));
         String testFile = "tests/testfile";
         Translator t = new Translator(testFile);
         //directly calling methods appearing in Machine.main to avoid call to static method
@@ -70,13 +66,4 @@ public class InstructionTests {
     @Test
     public void testBnz() {assertEquals(m.getRegisters().getRegister(7),3);}
 
-    /*@Test
-    public void testOut(){
-        assertEquals("10\n", out.toString());
-    }*/
-
-    //    @After
-//    public void closeDown(){
-//        System.setOut(null);
-//    }
 }

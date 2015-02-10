@@ -87,9 +87,9 @@ public class Translator {
 
         // You will have to write code here for the other instructions.
 
-        //create array of objects and populate with scanned values
+        // Create array of objects and populate with scanned values
         // operands[2] is s1, will be String if ins is "bnz", otherwise will be int
-        // if there is no value present when the line is scanned, it will default to max int value
+        // If there is no value present when the line is scanned, it will default to max int value
         // but that value will not be passed into the constructor
         Object[] operands = {label, scanInt(), ins.equals("bnz")? scan() : scanInt(), scanInt()};
 
